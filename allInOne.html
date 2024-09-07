@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOMOS KHIILAOO MUJHEE</title>
+    <link rel="icon" href="favicon.ico" type="x-icon" sizes="16x16">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Sevillana&display=swap');
+    </style>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(58, 78, 96);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .boxFirst {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "Josefin Sans", sans-serif;
+            color: rgb(226, 226, 226);
+            margin: 15px;
+            text-align: center;
+        }
+
+        .gif {
+            width: 100%;
+            max-width: 500px;
+            border: 2px;
+        }
+
+        .btn {
+            margin-top: 50px;
+            position: relative;
+            height: 40px;
+        }
+
+        button {
+            width: 200px;
+            height: inherit;
+            border-radius: 40px;
+            outline: invert;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(8, 52, 98, 0.531);
+            border: 2px solid white;
+            
+        }
+
+        button.yes-btn {
+            background:whitesmoke;
+            position: relative;
+            color: rgb(29, 67, 105);
+            font-size: large;
+            font-weight: bolder;
+        }
+
+        button.no-btn {
+            background: whitesmoke;
+            color:rgb(29, 67, 105);
+            font-size: large;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            font-weight: bolder;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="boxFirst">
+        <h1 class="question">Will You Give Me Treat Of Momos???</h1>
+        <img class="gif" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXZudWR2eTNmMHRtdDY0dXUwOTJ6cm14b2lhMW51YjI1ZWR1NXQ2aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BBNYBoYa5VwtO/giphy.gif" alt="">
+    </div>
+
+    <div class="btn">
+        <button class="yes-btn">Yes!</button>
+        <button class="no-btn">No!</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const yesbtn = document.querySelector(".yes-btn");
+            const nobtn = document.querySelector(".no-btn");
+            const question = document.querySelector(".question");
+            const gif = document.querySelector(".gif");
+
+            yesbtn.addEventListener("click", () => {
+                question.innerHTML = "YESSSSHHHHHHH!!!!! LET'S GO!!";
+                gif.src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmh1dHJycm80bmh2N205N3NhdGY2bTBmNDI4aTR0dHJldGtrbG05aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rBszdmXbzglQUX7N4j/giphy.gif";
+            });
+
+            nobtn.addEventListener("mouseover", () => {
+                const box = document.querySelector(".boxFirst");
+                const boxRect = box.getBoundingClientRect();
+                const nobtnRect = nobtn.getBoundingClientRect();
+
+                const maxX = boxRect.width - nobtnRect.width;
+                const maxY = boxRect.height - nobtnRect.height;
+
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+
+                nobtn.style.left = randomX + "px";
+                nobtn.style.top = randomY + "px";
+            });
+        });
+    </script>
+</body>
+</html>
